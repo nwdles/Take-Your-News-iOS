@@ -22,5 +22,17 @@ class ProfileController: UIViewController {
     }
     
 
+    @IBAction func logOut(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "basicAuth")
+        UserDefaults.standard.removeObject(forKey: "name")
+        UserDefaults.standard.removeObject(forKey: "login")
 
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
+        viewController.modalPresentationStyle = .overFullScreen
+        self.definesPresentationContext = false
+        present(viewController, animated: true, completion: nil)
+        
+    }
+    
 }

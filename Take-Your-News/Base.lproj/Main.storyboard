@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Take_Your_News" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" modalPresentationStyle="overFullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="Take_Your_News" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,14 +116,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ma-HZ-gbt">
+                                <rect key="frame" x="183" y="597" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logOut:" destination="l0V-it-jVI" eventType="touchUpInside" id="rgH-Va-dvB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="H12-QD-RGi" firstAttribute="leading" secondItem="LTg-94-kFe" secondAttribute="leading" constant="20" id="0Dg-z5-SXv"/>
+                            <constraint firstItem="8Ma-HZ-gbt" firstAttribute="centerX" secondItem="5Op-1U-Qus" secondAttribute="centerX" id="ESj-aQ-ULv"/>
                             <constraint firstItem="f7Q-SJ-9Ok" firstAttribute="centerY" secondItem="5Op-1U-Qus" secondAttribute="centerY" id="FRg-K8-x0q"/>
                             <constraint firstItem="H12-QD-RGi" firstAttribute="top" secondItem="f7Q-SJ-9Ok" secondAttribute="bottom" constant="25" id="KCP-wr-wrO"/>
                             <constraint firstItem="f7Q-SJ-9Ok" firstAttribute="centerX" secondItem="5Op-1U-Qus" secondAttribute="centerX" id="QB0-bO-n1z"/>
                             <constraint firstItem="LTg-94-kFe" firstAttribute="trailing" secondItem="H12-QD-RGi" secondAttribute="trailing" constant="20" id="d8I-9a-pf0"/>
+                            <constraint firstItem="8Ma-HZ-gbt" firstAttribute="top" secondItem="H12-QD-RGi" secondAttribute="bottom" constant="100" id="eiU-A8-cq6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LTg-94-kFe"/>
                     </view>
