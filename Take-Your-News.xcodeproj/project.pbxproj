@@ -27,7 +27,6 @@
 		22A0A02E2470388600DFFD21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22A0A02C2470388600DFFD21 /* LaunchScreen.storyboard */; };
 		22A0A03624703D4300DFFD21 /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03524703D4300DFFD21 /* MainAppViewController.swift */; };
 		22A0A03824703E2000DFFD21 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03724703E2000DFFD21 /* User.swift */; };
-		22A0A03A24703E6300DFFD21 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03924703E6300DFFD21 /* AlertService.swift */; };
 		22A0A03C2470402500DFFD21 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03B2470402500DFFD21 /* NetworkingService.swift */; };
 		22A0A03E2470581200DFFD21 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03D2470581200DFFD21 /* ErrorResponse.swift */; };
 		22A0A04024705CE500DFFD21 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03F24705CE500DFFD21 /* Login.swift */; };
@@ -57,7 +56,6 @@
 		22A0A02F2470388600DFFD21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		22A0A03524703D4300DFFD21 /* MainAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
 		22A0A03724703E2000DFFD21 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		22A0A03924703E6300DFFD21 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		22A0A03B2470402500DFFD21 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
 		22A0A03D2470581200DFFD21 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		22A0A03F24705CE500DFFD21 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
@@ -117,7 +115,6 @@
 		22773AAF2472BB0900F69AD2 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				22A0A03924703E6300DFFD21 /* AlertService.swift */,
 				22A0A03B2470402500DFFD21 /* NetworkingService.swift */,
 			);
 			path = Services;
@@ -280,7 +277,6 @@
 				220DD08F24732B710066E240 /* ProfileController.swift in Sources */,
 				22773AA42472850F00F69AD2 /* TabBarController.swift in Sources */,
 				22857E062477139E00A9F2DF /* FavoriteDetailController.swift in Sources */,
-				22A0A03A24703E6300DFFD21 /* AlertService.swift in Sources */,
 				22A0A03C2470402500DFFD21 /* NetworkingService.swift in Sources */,
 				22857E002476D2C500A9F2DF /* FavoritesController.swift in Sources */,
 				22A0A04224708FC100DFFD21 /* Category.swift in Sources */,

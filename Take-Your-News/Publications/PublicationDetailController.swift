@@ -100,6 +100,10 @@ class PublicationDetailController: UIViewController {
         
         CoreDataManager.shared.createFavoritePublication(category: addCategory, publication: addPublication)
         
+        let alert = UIAlertController(title: "This post added to favorite list!", message: "Check this in the favorites menu", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
+        
     }
     
     private func setupLayout() {

@@ -28,7 +28,7 @@ class CategoryCell: UICollectionViewCell {
         self.categoryImage.backgroundColor = .lightGray
         guard let strUrl = category.image else { return }
         let url = URL(string: strUrl)!
-        
+        print(strUrl)
         DispatchQueue.global().async { [weak self] in
             if let data = try? Data(contentsOf: url) {
                 if let image = UIImage(data: data) {

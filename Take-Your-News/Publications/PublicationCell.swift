@@ -24,6 +24,7 @@ class PublicationCell: UITableViewCell {
                         DispatchQueue.main.async {
                             self?.viewImg.image = image
                             self?.viewImg.contentMode = .scaleAspectFill
+                            self?.viewImg.clipsToBounds = true
                         }
                     }
                 }

@@ -61,6 +61,10 @@ class FavoritesController: UITableViewController {
             self.favCategories.removeAll()
             self.tableView.reloadData()
             
+            let alert = UIAlertController(title: "All favorite posts deleted!", message: "You can refresh list from server", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true)
+            
         } catch let delErr {
             print("failed delete \(delErr)")
         }
