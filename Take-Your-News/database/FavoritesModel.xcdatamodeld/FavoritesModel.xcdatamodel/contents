@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FavCategory" representedClassName="FavCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="publications" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FavPublication" inverseName="category" inverseEntity="FavPublication"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="FavPublication" representedClassName="FavPublication" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="header" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="Binary"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FavCategory" inverseName="publications" inverseEntity="FavCategory"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="header"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <elements>
+        <element name="FavCategory" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="FavPublication" positionX="178.89453125" positionY="-124.95703125" width="128" height="118"/>
+    </elements>
+</model>

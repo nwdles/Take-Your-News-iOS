@@ -2,7 +2,7 @@ import Foundation
 
 class NetworkingService {
     
-    let baseUrl = "http://192.168.1.41/api"
+    let baseUrl = "http://192.168.1.40/api"
     
     static let shared = NetworkingService()
     
@@ -232,6 +232,81 @@ class NetworkingService {
         
         task.resume()
     }
+    
+    func requestFavorites(endpoint: String,
+                 basicAuth: String?,
+                 completion: @escaping (Result<FavoritesList, Error>) -> Void) {
+        
+        guard let url = URL(string: baseUrl + endpoint) else {
+            completion(.failure(NetworkingError.badUrl))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        guard let base64data = basicAuth as String? else {
+            completion(.failure(NetworkingError.badEncoding))
+            return
+            
+        }
+        
+        request.setValue("Basic \(base64data)", forHTTPHeaderField: "Authorization")
+        handleResponseFavorites(for: request, completion: completion)
+        
+    }
+    
+    func handleResponseFavorites(for request: URLRequest,
+                        completion: @escaping (Result<FavoritesList, Error>) -> Void) {
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: request) { (data, response, error) in
+            DispatchQueue.main.async {
+                
+                guard let unwrappedResponse = response as? HTTPURLResponse else {
+                    completion(.failure(NetworkingError.badResponse))
+                    return
+                }
+                
+                print(unwrappedResponse.statusCode)
+                
+                switch unwrappedResponse.statusCode {
+                case 200 ..< 300:
+                    print("Success")
+                    //UserDefaults save base
+                default:
+                    print("failure")
+                }
+                
+                if let unwrappedError = error {
+                    completion(.failure(unwrappedError))
+                    return
+                }
+                
+                if let unwrappedData = data {
+                    do {
+                       // let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                       // print(json)
+                        
+                        if let favorites = try? JSONDecoder().decode(FavoritesList.self, from: unwrappedData) {
+                            completion(.success(favorites))
+                        } else {
+                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
+                            completion(.failure(errorResponse))
+                        }
+                    } catch {
+                        completion(.failure(error))
+                    }
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    
 }
 
 enum NetworkingError: Error {

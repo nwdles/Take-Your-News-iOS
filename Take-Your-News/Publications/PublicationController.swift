@@ -59,9 +59,10 @@ class PublicationController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let publication = publications?[indexPath.row] else { return }
+        guard let publication = publications?[indexPath.row], let category = self.category else { return }
         let publicationDetail = PublicationDetailController()
         publicationDetail.publication = publication
+        publicationDetail.category = category
         navigationController?.pushViewController(publicationDetail, animated: true)
     }
 

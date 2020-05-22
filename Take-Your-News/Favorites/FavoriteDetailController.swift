@@ -1,23 +1,21 @@
 //
-//  PublicationDetail.swift
+//  FavoriteDetailController.swift
 //  Take-Your-News
 //
-//  Created by Anastasiya on 18/05/2020.
+//  Created by Anastasiya on 21/05/2020.
 //  Copyright © 2020 Anastasiya. All rights reserved.
 //
 
 import UIKit
 
-class PublicationDetailController: UIViewController {
+class FavoriteDetailController: UIViewController {
 
-    var publication: Publication? {
+    var publication: FavPublication? {
         didSet {
             descriptionLabel.text = publication?.text
             headerLabel.text = publication?.header
         }
     }
-    
-    var category: Category?
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
@@ -72,19 +70,8 @@ class PublicationDetailController: UIViewController {
         view.backgroundColor = .white
         
         setupLayout()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleFavorite))
     }
-    
-    
-    @objc private func handleFavorite() {
-        print("Fav")
-    
-        guard let addCategory = category, let addPublication = publication else { return }
-        
-        CoreDataManager.shared.createFavoritePublication(category: addCategory, publication: addPublication)
-        
-    }
+
     
     private func setupLayout() {
         let guide = self.view.safeAreaLayoutGuide
@@ -106,20 +93,11 @@ class PublicationDetailController: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         
         stackView.addArrangedSubview(headerLabel)
-      /*  headerLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
-        headerLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true*/
         
         stackView.addArrangedSubview(viewImg)
-    /*    viewImg.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
-        viewImg.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -10).isActive = true
-        viewImg.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20).isActive = true*/
         viewImg.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         stackView.addArrangedSubview(descriptionLabel)
-     /*   descriptionLabel.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -10).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: viewImg.bottomAnchor, constant: 15).isActive = true*/
     }
-    
 
 }
