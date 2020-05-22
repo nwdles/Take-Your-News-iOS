@@ -14,6 +14,20 @@ class PublicationCell: UITableViewCell {
         didSet {
             descriptionLabel.text = publication?.description
             headerLabel.text = publication?.header
+            
+            guard let strUrl = publication?.image else { return }
+            let url = URL(string: strUrl)!
+            
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.viewImg.image = image
+                            self?.viewImg.contentMode = .scaleAspectFill
+                        }
+                    }
+                }
+            }
         }
     }
     
@@ -37,16 +51,17 @@ class PublicationCell: UITableViewCell {
         return label
     }()
     
-    let viewImg: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
+    let viewImg: UIImageView = {
+        let view = UIImageView()
+      //  view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
+        
         return view
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+                
         addSubview(viewImg)
         viewImg.widthAnchor.constraint(equalToConstant: 100).isActive = true
         viewImg.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -73,7 +88,7 @@ class PublicationCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

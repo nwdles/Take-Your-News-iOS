@@ -28,8 +28,6 @@ class MainAppViewController: UIViewController {
             label.text = "Welcome, \(name.capitalized)"
         }*/
         
-        
-        
     }
 
 }

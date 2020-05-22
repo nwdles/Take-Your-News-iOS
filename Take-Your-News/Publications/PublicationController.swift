@@ -39,7 +39,6 @@ class PublicationController: UITableViewController {
       
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! PublicationCell
-               
         let publicationInCategory = publications?[indexPath.row]
         cell.publication = publicationInCategory
         return cell

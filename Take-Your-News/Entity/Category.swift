@@ -6,6 +6,6 @@ struct Category: Decodable {
     let image: String?
 }
 
-struct CategoryList: Decodable{
+struct CategoryList: Decodable {
     var data: [Category]?
 }

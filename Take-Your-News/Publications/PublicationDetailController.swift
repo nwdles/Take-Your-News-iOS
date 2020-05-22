@@ -14,6 +14,22 @@ class PublicationDetailController: UIViewController {
         didSet {
             descriptionLabel.text = publication?.text
             headerLabel.text = publication?.header
+            
+            guard let strUrl = publication?.image else { return }
+            let url = URL(string: strUrl)!
+            
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: url) {
+                    if let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self?.viewImg.image = image
+                            self?.viewImg.contentMode = .scaleAspectFill
+                            self?.viewImg.clipsToBounds = true
+                        }
+                    }
+                }
+            }
+            
         }
     }
     
@@ -41,9 +57,9 @@ class PublicationDetailController: UIViewController {
         return label
     }()
     
-    let viewImg: UIView = {
-        let view = UIView()
-        view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
+    let viewImg: UIImageView = {
+        let view = UIImageView()
+       // view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
