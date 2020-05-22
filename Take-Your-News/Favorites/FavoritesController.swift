@@ -70,6 +70,7 @@ class FavoritesController: UITableViewController {
     @objc private func handleRefresh(){
         print("refresh")
         
+        DispatchQueue.main.async {
         CoreDataManager.shared.loadFavorites() {
             self.refreshControl?.endRefreshing()
             
@@ -77,6 +78,7 @@ class FavoritesController: UITableViewController {
             self.favCategories = CoreDataManager.shared.fetchCategories()
             self.tableView.reloadData()
         }
+    }
         
         
     }
@@ -155,6 +157,7 @@ class FavoritesController: UITableViewController {
         let publication = arrPublications[indexPath.row]
         
         let publicationDetail = FavoriteDetailController()
+
         publicationDetail.publication = publication
         navigationController?.pushViewController(publicationDetail, animated: true)
         

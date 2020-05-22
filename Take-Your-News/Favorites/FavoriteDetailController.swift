@@ -14,6 +14,13 @@ class FavoriteDetailController: UIViewController {
         didSet {
             descriptionLabel.text = publication?.text
             headerLabel.text = publication?.header
+            
+            if let imageData = publication?.image {
+                viewImg.image = UIImage(data: imageData)
+                viewImg.contentMode = .scaleAspectFill
+                viewImg.clipsToBounds = true
+            }
+            
         }
     }
     
@@ -39,8 +46,8 @@ class FavoriteDetailController: UIViewController {
         return label
     }()
     
-    let viewImg: UIView = {
-        let view = UIView()
+    let viewImg: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view

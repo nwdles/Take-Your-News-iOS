@@ -7,6 +7,7 @@
 //
 
 import CoreData
+import UIKit
 
 class CoreDataManager {
     
@@ -34,9 +35,9 @@ class CoreDataManager {
                 
                 privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 privateContext.parent?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-            
-              //  let privateContext = self.persistentContainer.viewContext
-              //  privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+                
+                //  let privateContext = self.persistentContainer.viewContext
+                //  privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 
                 guard let jsonFavorites = favorites.data else { return }
                 
@@ -45,7 +46,7 @@ class CoreDataManager {
                     
                     let category = FavCategory(context: privateContext)
                     category.name = jsonFavorite.name
-                
+                    
                     
                     jsonFavorite.publications?.forEach({ (jsonPublication) in
                         //print("   \(jsonPublication.header)")
@@ -54,6 +55,19 @@ class CoreDataManager {
                         publication.header = jsonPublication.header
                         publication.desc = jsonPublication.description
                         publication.text = jsonPublication.text
+                        
+                        if jsonPublication.image != nil {
+                            let url = URL(string: jsonPublication.image!)!
+                            if let data = try? Data(contentsOf: url) {
+                                if let image = UIImage(data: data) {
+                                    let imageData = image.jpegData(compressionQuality: 0.8)
+                                    publication.image = imageData
+                                }                                
+                            }
+                        }
+                        
+                        
+                        
                         
                         category.addToPublications(publication)
                     })
@@ -80,17 +94,17 @@ class CoreDataManager {
     
     func fetchPublications() -> [FavPublication] {
         let context = persistentContainer.viewContext
-               
-               let fetchRequest = NSFetchRequest<FavPublication>(entityName: "FavPublication")
-                       
-               do {
-                let publications = try context.fetch(fetchRequest)
-                return publications
-                
-               } catch let fetchErr {
-                   print("Failed to fetch \(fetchErr.localizedDescription)")
-                return []
-               }
+        
+        let fetchRequest = NSFetchRequest<FavPublication>(entityName: "FavPublication")
+        
+        do {
+            let publications = try context.fetch(fetchRequest)
+            return publications
+            
+        } catch let fetchErr {
+            print("Failed to fetch \(fetchErr.localizedDescription)")
+            return []
+        }
     }
     
     func fetchCategories() -> [FavCategory] {
@@ -113,26 +127,26 @@ class CoreDataManager {
     
     
     func createFavoritePublication(category: Category, publication: Publication) {
-            let context = persistentContainer.viewContext
-            context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-            
-            //create employee
+        let context = persistentContainer.viewContext
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        //create employee
         let favCategory = NSEntityDescription.insertNewObject(forEntityName: "FavCategory", into: context) as! FavCategory
         favCategory.name = category.name
-            
-            let favPublication = NSEntityDescription.insertNewObject(forEntityName: "FavPublication", into: context) as! FavPublication
+        
+        let favPublication = NSEntityDescription.insertNewObject(forEntityName: "FavPublication", into: context) as! FavPublication
         favPublication.category = favCategory
         favPublication.header = publication.header
         favPublication.desc = publication.description
         favPublication.text = publication.text
-                        
-            do {
-                //success
-                try context.save()
-
-            } catch let err {
-                print("fail create employee \(err.localizedDescription)")
-
-            }
+        
+        do {
+            //success
+            try context.save()
+            
+        } catch let err {
+            print("fail create employee \(err.localizedDescription)")
+            
         }
+    }
 }
