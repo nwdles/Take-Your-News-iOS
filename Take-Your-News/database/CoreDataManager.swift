@@ -28,7 +28,7 @@ class CoreDataManager {
             switch result {
             case .success(let favorites):
                 //dump(favorites.data)
-                
+                DispatchQueue.global(qos: .background).async {
                 let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
                 
                 privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
@@ -81,6 +81,7 @@ class CoreDataManager {
                     }
                     
                     completion()
+                }
                 }
                 
             case .failure(let error):

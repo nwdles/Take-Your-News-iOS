@@ -6,8 +6,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    let alertService = AlertService()
+
     let networkingService = NetworkingService()
     
     override func viewDidLoad() {
@@ -36,8 +35,8 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(user.login, forKey: "login")
             UserDefaults.standard.set(user.name, forKey: "name")
             case .failure(let error):
-                guard let alert = self?.alertService.alert(message: error.localizedDescription) else { return }
-                
+                let alert = UIAlertController(title: "All favorite posts deleted!", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self?.present(alert, animated: true)
             }
         }

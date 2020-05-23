@@ -74,15 +74,16 @@ class FavoritesController: UITableViewController {
     @objc private func handleRefresh(){
         print("refresh")
         
-        DispatchQueue.main.async {
-        CoreDataManager.shared.loadFavorites() {
-            self.refreshControl?.endRefreshing()
+        self.refreshControl?.endRefreshing()
+
+            CoreDataManager.shared.loadFavorites() {
+            DispatchQueue.main.async {
             
             self.favPublications = CoreDataManager.shared.fetchPublications()
             self.favCategories = CoreDataManager.shared.fetchCategories()
             self.tableView.reloadData()
+            }
         }
-    }
         
         
     }
