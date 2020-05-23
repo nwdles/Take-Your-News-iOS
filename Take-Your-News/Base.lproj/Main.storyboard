@@ -126,7 +126,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Fbg-Hy-d5r">
             <objects>
-                <tabBarController storyboardIdentifier="tabBar" modalPresentationStyle="fullScreen" id="dek-0i-fQC" customClass="TabBarController" customModule="Take_Your_News" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBar" modalPresentationStyle="fullScreen" id="dek-0i-fQC" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="kJH-BV-Qmh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4GC-sB-sSa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

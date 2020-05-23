@@ -16,7 +16,7 @@ class PublicationController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            NetworkingService.shared.requestPublication(endpoint: "/categories/\(self.category!.id)", basicAuth: UserDefaults.standard.string(forKey: "basicAuth")) { (result) in
+        NetworkingService.shared.createRequest(endpoint: "/categories/\(self.category!.id)", basicAuth: UserDefaults.standard.string(forKey: "basicAuth"), method: "GET") { (result: Result<PublicationList, Error>) in
             switch result {
             case .success(let publications):
                     self.publications = publications.data

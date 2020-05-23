@@ -10,9 +10,7 @@ import UIKit
 import CoreData
 
 class FavoritesController: UITableViewController {
-    
-    var favPublications = [FavPublication]()
-    
+
     var favCategories = [FavCategory]()
     
     override func viewDidLoad() {
@@ -34,8 +32,7 @@ class FavoritesController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.favPublications = CoreDataManager.shared.fetchPublications()
+
         self.favCategories = CoreDataManager.shared.fetchCategories()
         
         tableView.reloadData()
@@ -55,7 +52,6 @@ class FavoritesController: UITableViewController {
             for (indexSection, category) in favCategories.enumerated() {
                 
                 for (indexRow, _) in (category.publications?.enumerated())! {
-                    print("\(indexSection) - \(indexRow)")
                     
                     let indexPath = IndexPath(row: indexRow , section: indexSection)
                     indexPathToRemove.append(indexPath)
@@ -82,8 +78,7 @@ class FavoritesController: UITableViewController {
 
             CoreDataManager.shared.loadFavorites() {
             DispatchQueue.main.async {
-            
-            self.favPublications = CoreDataManager.shared.fetchPublications()
+
             self.favCategories = CoreDataManager.shared.fetchCategories()
             self.tableView.reloadData()
             }
@@ -93,7 +88,6 @@ class FavoritesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //let count = favPublications.count
             let publications = favCategories[section].publications?.allObjects as! [FavPublication]
             let count = publications.count
             
@@ -132,7 +126,6 @@ class FavoritesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let publication = favPublications[indexPath.row]
         let publications = favCategories[indexPath.section].publications?.allObjects as! [FavPublication]
         let publication = publications[indexPath.row]
         
@@ -161,8 +154,6 @@ class FavoritesController: UITableViewController {
                 try context.save()
             } catch let saveErr {
                 print("Filed to delete \(saveErr.localizedDescription)")
-                
-                //perform edit
             }
             
             completion(true)

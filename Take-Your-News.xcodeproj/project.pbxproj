@@ -11,7 +11,6 @@
 		220DD08F24732B710066E240 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DD08E24732B710066E240 /* ProfileController.swift */; };
 		221325C12475D14200A35F10 /* FavoritesModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 221325BF2475D14200A35F10 /* FavoritesModel.xcdatamodeld */; };
 		221325C32475D27E00A35F10 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221325C22475D27E00A35F10 /* CoreDataManager.swift */; };
-		22773AA42472850F00F69AD2 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22773AA32472850F00F69AD2 /* TabBarController.swift */; };
 		22773AAA24729B3900F69AD2 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22773AA824729B3900F69AD2 /* CategoryCell.swift */; };
 		22773AAB24729B3900F69AD2 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22773AA924729B3900F69AD2 /* CategoryCell.xib */; };
 		22773AAD2472B27100F69AD2 /* PublicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22773AAC2472B27100F69AD2 /* PublicationController.swift */; };
@@ -28,7 +27,6 @@
 		22A0A03624703D4300DFFD21 /* MainAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03524703D4300DFFD21 /* MainAppViewController.swift */; };
 		22A0A03824703E2000DFFD21 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03724703E2000DFFD21 /* User.swift */; };
 		22A0A03C2470402500DFFD21 /* NetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03B2470402500DFFD21 /* NetworkingService.swift */; };
-		22A0A03E2470581200DFFD21 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03D2470581200DFFD21 /* ErrorResponse.swift */; };
 		22A0A04024705CE500DFFD21 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03F24705CE500DFFD21 /* Login.swift */; };
 		22A0A04224708FC100DFFD21 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A04124708FC100DFFD21 /* Category.swift */; };
 		22E4E905247953FF0054E02B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4E904247953FF0054E02B /* FavoriteCell.swift */; };
@@ -39,7 +37,6 @@
 		220DD08E24732B710066E240 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		221325C02475D14200A35F10 /* FavoritesModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoritesModel.xcdatamodel; sourceTree = "<group>"; };
 		221325C22475D27E00A35F10 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		22773AA32472850F00F69AD2 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		22773AA824729B3900F69AD2 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		22773AA924729B3900F69AD2 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		22773AAC2472B27100F69AD2 /* PublicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicationController.swift; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		22A0A03524703D4300DFFD21 /* MainAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppViewController.swift; sourceTree = "<group>"; };
 		22A0A03724703E2000DFFD21 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22A0A03B2470402500DFFD21 /* NetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingService.swift; sourceTree = "<group>"; };
-		22A0A03D2470581200DFFD21 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		22A0A03F24705CE500DFFD21 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		22A0A04124708FC100DFFD21 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		22E4E904247953FF0054E02B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
@@ -107,7 +103,6 @@
 				22A0A03724703E2000DFFD21 /* User.swift */,
 				22A0A03F24705CE500DFFD21 /* Login.swift */,
 				22A0A04124708FC100DFFD21 /* Category.swift */,
-				22A0A03D2470581200DFFD21 /* ErrorResponse.swift */,
 				22773AB32472C45800F69AD2 /* Publication.swift */,
 				22857E032476DDD500A9F2DF /* Favorites.swift */,
 			);
@@ -188,7 +183,6 @@
 				22773AA724729AF200F69AD2 /* Cells */,
 				22A0A0212470388300DFFD21 /* AppDelegate.swift */,
 				22A0A0272470388300DFFD21 /* Main.storyboard */,
-				22773AA32472850F00F69AD2 /* TabBarController.swift */,
 				22A0A02A2470388600DFFD21 /* Assets.xcassets */,
 				22A0A02C2470388600DFFD21 /* LaunchScreen.storyboard */,
 				22A0A02F2470388600DFFD21 /* Info.plist */,
@@ -279,7 +273,6 @@
 				22A0A03824703E2000DFFD21 /* User.swift in Sources */,
 				22E4E905247953FF0054E02B /* FavoriteCell.swift in Sources */,
 				220DD08F24732B710066E240 /* ProfileController.swift in Sources */,
-				22773AA42472850F00F69AD2 /* TabBarController.swift in Sources */,
 				22857E062477139E00A9F2DF /* FavoriteDetailController.swift in Sources */,
 				22A0A03C2470402500DFFD21 /* NetworkingService.swift in Sources */,
 				22857E002476D2C500A9F2DF /* FavoritesController.swift in Sources */,
@@ -287,7 +280,6 @@
 				22A0A04024705CE500DFFD21 /* Login.swift in Sources */,
 				22A0A03624703D4300DFFD21 /* MainAppViewController.swift in Sources */,
 				22857E042476DDD500A9F2DF /* Favorites.swift in Sources */,
-				22A0A03E2470581200DFFD21 /* ErrorResponse.swift in Sources */,
 				22773AAA24729B3900F69AD2 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

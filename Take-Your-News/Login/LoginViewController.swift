@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         
         UserDefaults.standard.set(login_obj.getBasicAuth(), forKey: "basicAuth")
         
-        networkingService.request(endpoint: "/login", loginObject: login_obj) { [weak self] (result) in
+        networkingService.createRequest(endpoint: "/login", basicAuth: login_obj.getBasicAuth(), method: "POST") { [weak self] (result: Result<User,Error>) in
             switch result {
             case .success(let user): self?.performSegue(withIdentifier: "loginSegue", sender: user)
             UserDefaults.standard.set(user.login, forKey: "login")
@@ -49,6 +49,7 @@ class LoginViewController: UIViewController {
                 self?.present(alert, animated: true)
             }
         }
+        
         //UserDefaults.standard.removeObject(forKey: "basicAuth")
         
     }

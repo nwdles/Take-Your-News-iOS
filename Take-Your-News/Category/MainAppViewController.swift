@@ -11,28 +11,20 @@ class MainAppViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        /*navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        self.view.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)*/
-        
-        NetworkingService.shared.requestCategory(endpoint: "/categories", basicAuth: UserDefaults.standard.string(forKey: "basicAuth")) { (result) in
+
+        NetworkingService.shared.createRequest(endpoint: "/categories", basicAuth: UserDefaults.standard.string(forKey: "basicAuth"), method: "GET") { [weak self] (result: Result<CategoryList, Error>) in
             switch result {
-            case .success(let categories): self.categories = categories
+            case .success(let categories): self?.categories = categories
                 
-            self.collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
-            self.collectionView.dataSource = self
-            self.collectionView.delegate = self
+            self?.collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: "CategoryCell")
+            self?.collectionView.dataSource = self
+            self?.collectionView.delegate = self
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
         
         navigationItem.title = "Categories"
-        
-        
-      /*  if let name = user?.name {
-            label.text = "Welcome, \(name.capitalized)"
-        }*/
         
     }
 

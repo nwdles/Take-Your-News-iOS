@@ -24,7 +24,7 @@ class CoreDataManager {
     }()
     
     func loadFavorites(completion: @escaping () -> Void) {
-        NetworkingService.shared.requestFavorites(endpoint: "/favorites", basicAuth: UserDefaults.standard.string(forKey: "basicAuth")) { (result) in
+        NetworkingService.shared.createRequest(endpoint: "/favorites", basicAuth: UserDefaults.standard.string(forKey: "basicAuth"), method: "GET") { (result: Result<FavoritesList, Error>) in
             switch result {
             case .success(let favorites):
                 //dump(favorites.data)
@@ -35,9 +35,6 @@ class CoreDataManager {
                 
                 privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 privateContext.parent?.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-                
-                //  let privateContext = self.persistentContainer.viewContext
-                //  privateContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
                 
                 guard let jsonFavorites = favorites.data else { return }
                 
@@ -65,9 +62,6 @@ class CoreDataManager {
                                 }                                
                             }
                         }
-                        
-                        
-                        
                         
                         category.addToPublications(publication)
                     })
@@ -131,8 +125,7 @@ class CoreDataManager {
          DispatchQueue.global(qos: .background).async {
             let context = self.persistentContainer.viewContext
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
-        //create employee
+
         let favCategory = NSEntityDescription.insertNewObject(forEntityName: "FavCategory", into: context) as! FavCategory
         favCategory.name = category.name
         

@@ -21,12 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
         let basicAuth: String? = UserDefaults.standard.string(forKey: "basicAuth")
-        dump(basicAuth)
+
         if basicAuth == nil {
         let viewController = storyBoard.instantiateViewController(withIdentifier: "loginViewController") as! LoginViewController
             window?.rootViewController = viewController
         } else {
-            let viewController = storyBoard.instantiateViewController(withIdentifier: "tabBar") as! TabBarController
+            let viewController = storyBoard.instantiateViewController(withIdentifier: "tabBar") as! UITabBarController
             viewController.modalPresentationStyle = .fullScreen
             window?.rootViewController = viewController
         }

@@ -127,19 +127,11 @@ class PublicationDetailController: UIViewController {
         stackView.isLayoutMarginsRelativeArrangement = true
         
         stackView.addArrangedSubview(headerLabel)
-      /*  headerLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 10).isActive = true
-        headerLabel.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true*/
         
         stackView.addArrangedSubview(viewImg)
-    /*    viewImg.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
-        viewImg.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -10).isActive = true
-        viewImg.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 20).isActive = true*/
         viewImg.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         stackView.addArrangedSubview(descriptionLabel)
-     /*   descriptionLabel.leftAnchor.constraint(equalTo: stackView.leftAnchor, constant: 10).isActive = true
-        descriptionLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor, constant: -10).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: viewImg.bottomAnchor, constant: 15).isActive = true*/
     }
     
 
