@@ -29,6 +29,7 @@ class PublicationDetailController: UIViewController {
                     }
                 }
             }
+            viewImg.layer.cornerRadius = 5
             
         }
     }

@@ -18,7 +18,11 @@ class FavoritesController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //  self.favPublications = CoreDataManager.shared.fetchPublications()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
+        tableView.separatorStyle = .none
+        tableView.register(FavoriteCell.self, forCellReuseIdentifier: "cellId")
+
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(handleReset))
         
@@ -103,24 +107,37 @@ class FavoritesController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 50
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = favCategories[section].name
-        label.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
         
-        return label
+        let headerView = UIView()
+        headerView.backgroundColor = #colorLiteral(red: 0.5436469316, green: 0.7839553952, blue: 0.9142720699, alpha: 1)
+        
+        let label = UILabel()
+        label.frame = CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50)
+        label.text = favCategories[section].name
+        label.textColor = #colorLiteral(red: 0.9999960065, green: 1, blue: 1, alpha: 1)
+        label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        headerView.addSubview(label)
+        
+        return headerView
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellFav", for: indexPath)
         //let publication = favPublications[indexPath.row]
         let publications = favCategories[indexPath.section].publications?.allObjects as! [FavPublication]
         let publication = publications[indexPath.row]
-        cell.textLabel?.text = publication.header
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! FavoriteCell
+        cell.publication = publication
         return cell
     }
     

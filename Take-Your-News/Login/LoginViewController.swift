@@ -12,7 +12,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //tableView.keyboardDismissMode = .onDrag
+
+        loginTextField.layer.cornerRadius = 5
+        loginTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: loginTextField.frame.height))
+        loginTextField.leftViewMode = .always
+        
+        passwordTextField.layer.cornerRadius = 5
+        passwordTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: passwordTextField.frame.height))
+        passwordTextField.leftViewMode = .always
+
     }
 
     @IBAction func didTapLoginButton() {
@@ -35,7 +43,8 @@ class LoginViewController: UIViewController {
             UserDefaults.standard.set(user.login, forKey: "login")
             UserDefaults.standard.set(user.name, forKey: "name")
             case .failure(let error):
-                let alert = UIAlertController(title: "All favorite posts deleted!", message: error.localizedDescription, preferredStyle: .alert)
+                UserDefaults.standard.removeObject(forKey: "basicAuth")
+                let alert = UIAlertController(title: "Failure to sign in!", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self?.present(alert, animated: true)
             }

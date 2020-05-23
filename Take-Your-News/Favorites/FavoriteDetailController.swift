@@ -20,6 +20,7 @@ class FavoriteDetailController: UIViewController {
                 viewImg.contentMode = .scaleAspectFill
                 viewImg.clipsToBounds = true
             }
+            viewImg.layer.cornerRadius = 5
             
         }
     }

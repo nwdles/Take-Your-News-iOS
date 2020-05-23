@@ -31,6 +31,7 @@
 		22A0A03E2470581200DFFD21 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03D2470581200DFFD21 /* ErrorResponse.swift */; };
 		22A0A04024705CE500DFFD21 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A03F24705CE500DFFD21 /* Login.swift */; };
 		22A0A04224708FC100DFFD21 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A0A04124708FC100DFFD21 /* Category.swift */; };
+		22E4E905247953FF0054E02B /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E4E904247953FF0054E02B /* FavoriteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		22A0A03D2470581200DFFD21 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		22A0A03F24705CE500DFFD21 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		22A0A04124708FC100DFFD21 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		22E4E904247953FF0054E02B /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			children = (
 				22857DFF2476D2C500A9F2DF /* FavoritesController.swift */,
 				22857E052477139E00A9F2DF /* FavoriteDetailController.swift */,
+				22E4E904247953FF0054E02B /* FavoriteCell.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				221325C32475D27E00A35F10 /* CoreDataManager.swift in Sources */,
 				22773AAD2472B27100F69AD2 /* PublicationController.swift in Sources */,
 				22A0A03824703E2000DFFD21 /* User.swift in Sources */,
+				22E4E905247953FF0054E02B /* FavoriteCell.swift in Sources */,
 				220DD08F24732B710066E240 /* ProfileController.swift in Sources */,
 				22773AA42472850F00F69AD2 /* TabBarController.swift in Sources */,
 				22857E062477139E00A9F2DF /* FavoriteDetailController.swift in Sources */,

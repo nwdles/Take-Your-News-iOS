@@ -9,6 +9,12 @@ class MainAppViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        /*navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        self.view.backgroundColor = #colorLiteral(red: 0.2605174184, green: 0.2605243921, blue: 0.260520637, alpha: 1)*/
+        
         NetworkingService.shared.requestCategory(endpoint: "/categories", basicAuth: UserDefaults.standard.string(forKey: "basicAuth")) { (result) in
             switch result {
             case .success(let categories): self.categories = categories
@@ -47,7 +53,7 @@ extension MainAppViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 100)
+        return CGSize(width: UIScreen.main.bounds.width / 2 - 10, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

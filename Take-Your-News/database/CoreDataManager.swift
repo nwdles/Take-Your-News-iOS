@@ -128,7 +128,8 @@ class CoreDataManager {
     
     
     func createFavoritePublication(category: Category, publication: Publication) {
-        let context = persistentContainer.viewContext
+         DispatchQueue.global(qos: .background).async {
+            let context = self.persistentContainer.viewContext
         context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         //create employee
@@ -140,6 +141,16 @@ class CoreDataManager {
         favPublication.header = publication.header
         favPublication.desc = publication.description
         favPublication.text = publication.text
+            
+        if publication.image != nil {
+            let url = URL(string: publication.image!)!
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    let imageData = image.jpegData(compressionQuality: 0.8)
+                    favPublication.image = imageData
+                }
+            }
+        }
         
         do {
             //success
@@ -148,6 +159,7 @@ class CoreDataManager {
         } catch let err {
             print("fail create employee \(err.localizedDescription)")
             
+        }
         }
     }
 }

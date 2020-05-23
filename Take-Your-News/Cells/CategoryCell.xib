@@ -22,30 +22,43 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0zw-Tc-fgW">
                         <rect key="frame" x="0.0" y="0.0" width="203" height="126"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THb-od-gNV">
-                        <rect key="frame" x="75.5" y="51" width="52" height="24"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hd9-fE-RXa">
+                        <rect key="frame" x="0.0" y="76" width="203" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="THb-od-gNV">
+                                <rect key="frame" x="75.5" y="13" width="52" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="THb-od-gNV" firstAttribute="centerX" secondItem="Hd9-fE-RXa" secondAttribute="centerX" id="0UJ-D9-vXB"/>
+                            <constraint firstItem="THb-od-gNV" firstAttribute="centerY" secondItem="Hd9-fE-RXa" secondAttribute="centerY" id="5LA-z9-phs"/>
+                            <constraint firstAttribute="height" constant="50" id="lLd-vn-pPD"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="Hd9-fE-RXa" secondAttribute="bottom" id="7bz-Aw-t7M"/>
+                <constraint firstItem="Hd9-fE-RXa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Bpg-yN-S38"/>
                 <constraint firstItem="0dt-P8-X44" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Gbz-B1-76I"/>
                 <constraint firstItem="0dt-P8-X44" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Gxb-YT-LIR"/>
                 <constraint firstAttribute="trailing" secondItem="0zw-Tc-fgW" secondAttribute="trailing" id="Hv0-6f-dSs"/>
                 <constraint firstItem="0zw-Tc-fgW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="LiZ-86-Jpg"/>
-                <constraint firstItem="THb-od-gNV" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="VHV-64-jjr"/>
                 <constraint firstAttribute="trailing" secondItem="0dt-P8-X44" secondAttribute="trailing" id="iyq-bM-43D"/>
+                <constraint firstAttribute="trailing" secondItem="Hd9-fE-RXa" secondAttribute="trailing" id="m0x-7n-UDt"/>
                 <constraint firstItem="0zw-Tc-fgW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mmk-pu-bun"/>
                 <constraint firstAttribute="bottom" secondItem="0zw-Tc-fgW" secondAttribute="bottom" id="o7p-bv-gwP"/>
                 <constraint firstAttribute="bottom" secondItem="0dt-P8-X44" secondAttribute="bottom" id="pzF-w3-FNR"/>
-                <constraint firstItem="THb-od-gNV" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="s7c-FF-QFQ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="203" height="126"/>
             <connections>
                 <outlet property="categoryImage" destination="0dt-P8-X44" id="4xu-p2-gxf"/>
+                <outlet property="textView" destination="Hd9-fE-RXa" id="BpE-sW-vev"/>
                 <outlet property="titleCategory" destination="THb-od-gNV" id="jMv-U9-2hd"/>
             </connections>
             <point key="canvasLocation" x="242.75362318840581" y="141.96428571428569"/>

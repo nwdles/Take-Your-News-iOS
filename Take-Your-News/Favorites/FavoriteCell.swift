@@ -1,33 +1,24 @@
 //
-//  PublicationCell.swift
+//  FavoriteCell.swift
 //  Take-Your-News
 //
-//  Created by Anastasiya on 18/05/2020.
+//  Created by Anastasiya on 23/05/2020.
 //  Copyright © 2020 Anastasiya. All rights reserved.
 //
 
 import UIKit
 
-class PublicationCell: UITableViewCell {
-
-    var publication: Publication? {
+class FavoriteCell: UITableViewCell {
+    
+    var publication: FavPublication? {
         didSet {
-            descriptionLabel.text = publication?.description
+            descriptionLabel.text = publication?.desc
             headerLabel.text = publication?.header
             
-            guard let strUrl = publication?.image else { return }
-            let url = URL(string: strUrl)!
-            
-            DispatchQueue.global().async { [weak self] in
-                if let data = try? Data(contentsOf: url) {
-                    if let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            self?.viewImg.image = image
-                            self?.viewImg.contentMode = .scaleAspectFill
-                            self?.viewImg.clipsToBounds = true
-                        }
-                    }
-                }
+           if let imageData = publication?.image {
+                viewImg.image = UIImage(data: imageData)
+                viewImg.contentMode = .scaleAspectFill
+                viewImg.clipsToBounds = true
             }
             viewImg.layer.cornerRadius = 5
         }
@@ -45,7 +36,7 @@ class PublicationCell: UITableViewCell {
     
     let headerLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
@@ -55,7 +46,6 @@ class PublicationCell: UITableViewCell {
     
     let viewImg: UIImageView = {
         let view = UIImageView()
-      //  view.backgroundColor = #colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -71,7 +61,6 @@ class PublicationCell: UITableViewCell {
         viewImg.heightAnchor.constraint(equalToConstant: 100).isActive = true
         viewImg.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: 20).isActive = true
         viewImg.topAnchor.constraint(equalTo: guide.topAnchor, constant: 5).isActive = true
-        viewImg.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -5).isActive = true
         
         addSubview(headerLabel)
         headerLabel.topAnchor.constraint(equalTo: guide.topAnchor, constant: 5).isActive = true
@@ -82,7 +71,6 @@ class PublicationCell: UITableViewCell {
         descriptionLabel.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: -20).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: viewImg.rightAnchor, constant: 10).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15).isActive = true
-        //descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
     }
     
@@ -100,5 +88,4 @@ class PublicationCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

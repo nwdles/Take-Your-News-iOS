@@ -28,7 +28,9 @@ class PublicationController: UITableViewController {
 
         tableView.register(PublicationCell.self, forCellReuseIdentifier: "cellId")
 
+        tableView.tableFooterView = UIView(frame: .zero)
         navigationItem.title = category?.name
+        navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0.3285208941, blue: 0.5748849511, alpha: 1)
 
     }
     

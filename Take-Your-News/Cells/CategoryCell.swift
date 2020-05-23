@@ -13,6 +13,7 @@ class CategoryCell: UICollectionViewCell {
     @IBOutlet weak var titleCategory: UILabel!
     @IBOutlet weak var categoryImage: UIImageView!
     
+    @IBOutlet weak var textView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -24,6 +25,8 @@ class CategoryCell: UICollectionViewCell {
     
     func setupCell(category: Category, name: String) {
         //self.categoryImage.image = UIImage(named: "test")
+        self.textView.alpha = 0.7
+        self.categoryImage.layer.cornerRadius = 5
         self.titleCategory.text = name
         self.categoryImage.backgroundColor = .lightGray
         guard let strUrl = category.image else { return }
